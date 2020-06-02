@@ -6,6 +6,8 @@ const confirmPassword = document.getElementById('confirmPassword');
 const email = document.getElementById('email');
 // Form
 const form = document.getElementById('myForm');
+// msg panel bird
+// const bird = document.querySelector('fas-dove');
 // Validation colors
 const green = '#4CAF50';
 const red = '#F44336';
@@ -37,7 +39,7 @@ form.addEventListener('submit', function (event) {
       text.className = 'white-text';
       text.appendChild(
         document.createTextNode(
-          `Sign up successful, welcome to SocialBird ${name}`
+          `Sign up successful, welcome to SocialBird  ${name}`
         )
       );
       panel.appendChild(text);

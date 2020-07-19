@@ -1,19 +1,19 @@
 // Input Fields
-const firstName = document.getElementById('firstName');
-const lastName = document.getElementById('lastName');
-const password = document.getElementById('password');
-const confirmPassword = document.getElementById('confirmPassword');
-const email = document.getElementById('email');
+const firstName = document.getElementById("firstName");
+const lastName = document.getElementById("lastName");
+const password = document.getElementById("password");
+const confirmPassword = document.getElementById("confirmPassword");
+const email = document.getElementById("email");
 // Form
-const form = document.getElementById('myForm');
+const form = document.getElementById("myForm");
 // msg panel bird
 // const bird = document.querySelector('fas-dove');
 // Validation colors
-const green = '#4CAF50';
-const red = '#F44336';
+const green = "#4CAF50";
+const red = "#F44336";
 
 // Handle form on submit
-form.addEventListener('submit', function (event) {
+form.addEventListener("submit", function (event) {
   // prevent default behaviour of outputting our data to the address bar
   event.preventDefault();
   if (
@@ -24,19 +24,19 @@ form.addEventListener('submit', function (event) {
     validateEmail()
   ) {
     const name = firstName.value;
-    const container = document.querySelector('div.container');
-    const loader = document.createElement('div');
-    loader.className = 'progress';
-    const loadingBar = document.createElement('div');
-    loadingBar.className = 'indeterminate';
+    const container = document.querySelector("div.container");
+    const loader = document.createElement("div");
+    loader.className = "progress";
+    const loadingBar = document.createElement("div");
+    loadingBar.className = "indeterminate";
     loader.appendChild(loadingBar);
     container.appendChild(loader);
     setTimeout(function () {
-      const loaderDiv = document.querySelector('div.progress');
-      const panel = document.createElement('div');
-      panel.className = 'card-panel green';
-      const text = document.createElement('span');
-      text.className = 'white-text';
+      const loaderDiv = document.querySelector("div.progress");
+      const panel = document.createElement("div");
+      panel.className = "card-panel green";
+      const text = document.createElement("span");
+      text.className = "white-text";
       text.appendChild(
         document.createTextNode(
           `Sign up successful, welcome to SocialBird  ${name}`
@@ -77,13 +77,13 @@ function validatePassword() {
   return true;
 }
 function validateConfirmPassword() {
-  if (password.className !== 'valid') {
-    setInvalid(confirmPassword, 'Password must be valid');
+  if (password.className !== "valid") {
+    setInvalid(confirmPassword, "Password must be valid");
     return;
   }
   // If they match
   if (password.value !== confirmPassword.value) {
-    setInvalid(confirmPassword, 'Passwords must match');
+    setInvalid(confirmPassword, "Passwords doesn't match");
     return;
   } else {
     setValid(confirmPassword);
@@ -110,19 +110,19 @@ function checkIfEmpty(field) {
 }
 
 function isEmpty(value) {
-  if (value === '') {
+  if (value === "") {
     return true;
   } else return false;
 }
 
 function setInvalid(field, message) {
-  field.className = 'invalid';
+  field.className = "invalid";
   field.nextElementSibling.innerHTML = message;
   field.nextElementSibling.style.color = red;
 }
 function setValid(field) {
-  field.className = 'valid';
-  field.nextElementSibling.innerHTML = '';
+  field.className = "valid";
+  field.nextElementSibling.innerHTML = "";
   //   field.nextElementSibling.style.color = green;
 }
 
@@ -164,7 +164,7 @@ function containsCharacters(field, code) {
       return matchWithRegEx(
         regEx,
         field,
-        'Password must contain at least one letter'
+        "Password must contain at least one letter"
       );
     case 2:
       // At least one letter and one number
@@ -172,7 +172,7 @@ function containsCharacters(field, code) {
       return matchWithRegEx(
         regEx,
         field,
-        'Password must contain at least one letter and one number'
+        "Password must contain at least one letter and one number"
       );
     case 3:
       //  At least one uppercase , one lowercase  and one number
@@ -180,7 +180,7 @@ function containsCharacters(field, code) {
       return matchWithRegEx(
         regEx,
         field,
-        'Password must contain at least one uppercase, one lowercase and one number'
+        "Password must contain at least one uppercase, one lowercase and one number"
       );
     case 4:
       // At least one uppercase , one lowercase, one number and one special character
@@ -188,12 +188,12 @@ function containsCharacters(field, code) {
       return matchWithRegEx(
         regEx,
         field,
-        'Password must contain at least one uppercase, one lowercase, one number and one special character'
+        "Password must contain at least one uppercase, one lowercase, one number and one special character"
       );
     case 5:
       // Email validation pattern
       regEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      return matchWithRegEx(regEx, field, 'Must be a valid email address');
+      return matchWithRegEx(regEx, field, "Must be a valid email address");
 
     default:
       return false;
